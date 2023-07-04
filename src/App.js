@@ -16,6 +16,8 @@ export default function App() {
     rates: { USD: 108.95 },
   });
 
+  console.log(isLoading);
+  console.log(error);
   useEffect(function () {
     const controller = new AbortController();
     async function fetchConversion() {
@@ -182,13 +184,13 @@ function CurrencyInput({
   );
 }
 
-function Loader() {
-  return (
-    <div className="loader__container">
-      <span className="loader">&nbsp;</span>
-    </div>
-  );
-}
+// function Loader() {
+//   return (
+//     <div className="loader__container">
+//       <span className="loader">&nbsp;</span>
+//     </div>
+//   );
+// }
 
 function TextField({ inputAmount, setInputAmount }) {
   return (
