@@ -1,0 +1,52 @@
+// .loader {
+//   width: 48px;
+//   height: 48px;
+//   border-radius: 50%;
+//   position: relative;
+//   animation: rotate 1s linear infinite;
+
+//   &::before,
+//   &::after {
+//     content: "";
+//     box-sizing: border-box;
+//     position: absolute;
+//     inset: 0px;
+//     border-radius: 50%;
+//     border: 5px solid #fff;
+//     animation: prixClipFix 2s linear infinite;
+//   }
+
+//   &::after {
+//     inset: 8px;
+//     transform: rotate3d(90, 90, 0, 180deg);
+//     border-color: #ff3d00;
+//   }
+// }
+.loader {
+  &__container {
+    height: 60px;
+    width: 60px;
+  }
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    animation: prixClipFix 2s linear infinite;
+  }
+  &::after {
+    inset: 8px;
+    transform: rotate3d(90, 90, 0, 180deg);
+    border-color: #ff3d00;
+  }
+}

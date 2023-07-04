@@ -1,13 +1,269 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  75%, 100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+}
+*, *::after, *::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
 }
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #393939;
+  box-sizing: border-box;
+}
+
+.btn {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 1rem;
+  align-self: stretch;
+  transition: all 300ms;
+  border-radius: 1rem;
+  border: 2px solid #249361;
+  background: #249361;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.btn:hover {
+  transform: translateY(-0.4rem);
+  border: 2px solid #fff;
+  background-color: #21785d;
+}
+.btn:active {
+  transform: translateY(0.2rem);
+  background-color: #323644;
+}
+
+.form__input {
+  padding: 1rem;
+  text-align: center;
+  gap: 10px;
+  align-self: stretch;
+  border: none;
+  letter-spacing: 0.48rem;
+  text-transform: uppercase;
+  flex: 1 0 0;
+  transition: all 300ms;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.form__input:hover, .form__input:active {
+  background-color: #08eda4;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+.loader__container {
+  height: 60px;
+  width: 60px;
+}
+.loader::before, .loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}
+.loader::after {
+  inset: 8px;
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: #ff3d00;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #323644;
+}
+
+.header {
+  display: flex;
+  height: 7rem;
+  padding: 0.8em 0;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 10px 10px 0px 0px;
+  background: linear-gradient(92deg, #323644 0%, #059669 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.header > h1 {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.currency-converter {
+  display: flex;
+  max-width: 80rem;
+  max-height: 50rem;
+  margin: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: radial-gradient(317.8% 140.36% at 1.5% 100%, #059669 0%, rgba(5, 150, 105, 0) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+.currency-converter__calculator {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  padding: 5rem 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+.currency-converter__input, .currency-converter__output {
+  min-width: 28rem;
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: radial-gradient(317.8% 140.36% at 1.5% 100%, rgba(0, 0, 0, 0.31) 0%, rgba(255, 255, 255, 0.3) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(25px);
+}
+.currency-converter__output {
+  padding: 1rem;
+}
+.currency-converter__output--rates {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+.currency-converter__output--rates h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 900;
+  font-style: italic;
+}
+.currency-converter__output--rates p {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 2.4rem;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 1rem;
+}
+.currency-converter__output--rates span {
+  font-size: 2.4rem;
+  flex: 1 0 0;
+  color: #000;
+  align-self: stretch;
+  text-align: center;
+  letter-spacing: 0.48rem;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.currency-converter__output--result {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+.currency-converter__output--result h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 900;
+  font-style: italic;
+}
+.currency-converter__output--result p {
+  display: flex;
+  padding: 5px 9px;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: #1e1e1e;
+  font-size: 4.8rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.currency-converter__output--result span {
+  color: #249361;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.currency-converter__form {
+  display: flex;
+  padding: 0 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  align-self: stretch;
+}
+.currency-converter__form-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+/*# sourceMappingURL=index.css.map */
